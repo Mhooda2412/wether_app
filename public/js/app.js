@@ -13,9 +13,13 @@ searchForm.addEventListener("submit",(event)=>{
 	
 	const address = searchInput.value  
 
-
+	messageOne.textContent = "Loding ...."
+	messagetwo.textContent = ""
+	
 	fetch("/weather?address="+address).then((res)=>{
+		
 	res.json().then((data)=>{
+
 		if(data.error){
 			return  messageOne.textContent = data.error
 		}
